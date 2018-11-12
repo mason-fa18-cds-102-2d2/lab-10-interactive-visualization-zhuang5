@@ -1,0 +1,59 @@
+---
+title: "Lab 10: Interactive visualization"
+author: "Fill in your full name"
+date: "Date of lab session"
+documentclass: article
+geometry: margin=1in
+fontsize: 11pt
+output:
+  html_document:
+    highlight: tango
+    self_contained: true
+  pdf_document:
+    highlight: tango
+  github_document:
+    html_preview: false
+---
+
+```{r setup, include = FALSE}
+# DO NOT ALTER CODE IN THIS CHUNK
+# Set knitr options
+knitr::opts_chunk$set(
+  echo = TRUE, eval = TRUE, fig.width = 5,
+  fig.asp = 0.618, out.width = "80%", dpi = 120,
+  fig.align = "center", cache = FALSE
+)
+
+# Load packages
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(highcharter))
+suppressPackageStartupMessages(library(leaflet))
+
+# Load dataset
+mtcars <- read.csv("Cars.csv")
+school <- read.csv("School_University_100.csv")
+```
+
+---
+
+## Exercise 1
+
+
+
+## Exercise 2
+
+
+
+## Exercise 3
+
+
+
+
+## Exercise 4
+
+
+
+## Exercise 5
+
+
+

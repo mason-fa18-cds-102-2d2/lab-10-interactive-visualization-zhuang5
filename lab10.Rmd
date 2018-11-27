@@ -1,7 +1,7 @@
 ---
 title: "Lab 10: Interactive visualization"
-author: "Fill in your full name"
-date: "Date of lab session"
+author: "Zejian Huang"
+date: "11/25/2018"
 documentclass: article
 geometry: margin=1in
 fontsize: 11pt
@@ -37,23 +37,69 @@ school <- read.csv("School_University_100.csv")
 ---
 
 ## Exercise 1
-
-
+```{r}
+hchart(mtcars, "scatter", hcaes(x = hp, y = mpg, group = cyl)) %>%   
+  hc_title(text = "Miles per gallon vs Gross horsepower") %>%   
+  hc_xAxis(title = list(text = "Gross horsepower")) %>%   
+  hc_yAxis(title = list(text = "Miles per gallon")) 
+```
+The trend in the plot shows that MPG is decreasing when gross horsepower increases and number of cylinders increases. 
 
 ## Exercise 2
-
-
+```{R}
+hchart(mtcars, type = "bar", hcaes(x = Name, y = hp, group = carb)) %>%   
+  hc_title(text = "Gross horsepower and number of carburetors by car") %>%   
+  hc_xAxis(title = list(text = "Car")) %>%   
+  hc_yAxis(title = list(text = "Gross horsepower")) %>%   
+  hc_add_theme(hc_theme_elementary())
+```
+1: hornet 4 drive,
+2: hornet sportabout and pontiac firebird,
+3: Merc 450SL, Merc 450SE, Merc 450SLC,
+4: Ford Pantera L,
+6: Ferrari Dino, 
+8: Maserati Bora. 
 
 ## Exercise 3
-
-
+```{r}
+leaflet() %>%   
+  addProviderTiles(providers$Esri.NatGeoWorldMap) %>%   
+  setView(lng = -73.94731, lat = 40.69673, zoom = 10)
+```
+When we increase zoom, the map is more accurate and detailed. When we decrease zoom, the map is more brief and covered places are more than higher zoom.  
 
 
 ## Exercise 4
+```{r}
+leaflet() %>%   
+  addTiles() %>%   
+  setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%   
+  addMarkers(lat = school$lat, lng = school$lon)
+```
 
+```{r}
+leaflet() %>%   
+  addTiles() %>%   
+  setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%   
+  addCircleMarkers(lat = school$lat, lng = school$lon)
+```
 
+```{r}
+leaflet() %>%   
+  addTiles() %>%   
+  setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%   
+  addMarkers(lat = school$lat, lng = school$lon,              
+             popup = paste("School name:", school$School_Name, "<br>",                            "School rank:", school$School_Rank))
+```
 
 ## Exercise 5
-
+```{r}
+leaflet() %>%   
+  addTiles() %>%   
+  setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%   
+  addMarkers(lat = school$lat, lng = school$lon,              
+             popup = paste("School name:", school$School_Name, "<br>",                                                    "School rank:", school$School_Rank, 
+                           "School URL:", school$School_Url))
+```
 
 
